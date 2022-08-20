@@ -18,6 +18,5 @@ router.get('/modulos', loginControllers.modulos);
 router.get('/variedad', loginControllers.variedad);
 router.get('/tratamiento', loginControllers.tratamiento);
 router.post('/agregaritem', loginControllers.insertaritem);
-router.get('/creartablas', loginControllers.creartablas)
 
 module.exports = router;
