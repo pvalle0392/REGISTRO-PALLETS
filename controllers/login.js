@@ -3,228 +3,235 @@ const getConnection = require('../database');
 const querys = require('../querys');
 
 var login = {
-    validar: async function(req, res){
+    validar: async function (req, res) {
         let userid = req.params.id;
         try {
             const pool = await getConnection();
-            const result = await pool.query(querys.login,[userid]);
-            if(result == null || result == "undefined" || result.length == 0){
+            const result = await pool.query(querys.login, [userid]);
+            if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
-                    "type":"W",
-                    "response":"usuario o contrase;a incorrectos"
+                    "type": "W",
+                    "response": "usuario o contrase;a incorrectos"
                 })
-            }else{
+            } else {
                 res.status(200).send({
-                    "type":"S",
-                    "response":"Usuario y contraseña correctos"
+                    "type": "S",
+                    "response": "Usuario y contraseña correctos"
                 })
             }
         } catch (error) {
             res.status(500).send({
-                "type":"W",
-                "response":error.message
+                "type": "W",
+                "response": error.message
             })
         }
     },
-    transportes: async function(req, res){
+    transportes: async function (req, res) {
         try {
             const pool = await getConnection();
             const result = await pool.query(querys.transportes);
-            if(result == null || result == "undefined" || result.length == 0){
+            if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
-                    "type":"W",
-                    "response":"Base de datos vacía"
+                    "type": "W",
+                    "response": "Base de datos vacía"
                 })
-            }else{
+            } else {
                 res.status(200).send({
-                    "type":"S",
-                    "response":result
+                    "type": "S",
+                    "response": result
                 })
             }
         } catch (error) {
             res.status(500).send({
-                "type":"W",
-                "response":error.message
+                "type": "W",
+                "response": error.message
             })
         }
     },
-    vehiculos: async function(req, res){
+    vehiculos: async function (req, res) {
         try {
             const pool = await getConnection();
             const result = await pool.query(querys.vehiculos);
-            if(result == null || result == "undefined" || result.length == 0){
+            if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
-                    "type":"W",
-                    "response":"Base de datos vacía"
+                    "type": "W",
+                    "response": "Base de datos vacía"
                 })
-            }else{
+            } else {
                 res.status(200).send({
-                    "type":"S",
-                    "response":result
+                    "type": "S",
+                    "response": result
                 })
             }
         } catch (error) {
             res.status(500).send({
-                "type":"W",
-                "response":error.message
+                "type": "W",
+                "response": error.message
             })
         }
     },
-    conductores: async function(req, res){
+    conductores: async function (req, res) {
         try {
             const pool = await getConnection();
             const result = await pool.query(querys.conductores);
-            if(result == null || result == "undefined" || result.length == 0){
+            if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
-                    "type":"W",
-                    "response":"Base de datos vacía"
+                    "type": "W",
+                    "response": "Base de datos vacía"
                 })
-            }else{
+            } else {
                 res.status(200).send({
-                    "type":"S",
-                    "response":result
+                    "type": "S",
+                    "response": result
                 })
             }
         } catch (error) {
             res.status(500).send({
-                "type":"W",
-                "response":error.message
+                "type": "W",
+                "response": error.message
             })
         }
     },
-    acopio: async function(req, res){
+    acopio: async function (req, res) {
         try {
             const pool = await getConnection();
             const result = await pool.query(querys.acopio);
-            if(result == null || result == "undefined" || result.length == 0){
+            if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
-                    "type":"W",
-                    "response":"Base de datos vacía"
+                    "type": "W",
+                    "response": "Base de datos vacía"
                 })
-            }else{
+            } else {
                 res.status(200).send({
-                    "type":"S",
-                    "response":result
+                    "type": "S",
+                    "response": result
                 })
             }
         } catch (error) {
             res.status(500).send({
-                "type":"W",
-                "response":error.message
+                "type": "W",
+                "response": error.message
             })
         }
     },
-    lugarproceso: async function(req, res){
+    lugarproceso: async function (req, res) {
         try {
             const pool = await getConnection();
             const result = await pool.query(querys.lugarproceso);
-            if(result == null || result == "undefined" || result.length == 0){
+            if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
-                    "type":"W",
-                    "response":"Base de datos vacía"
+                    "type": "W",
+                    "response": "Base de datos vacía"
                 })
-            }else{
+            } else {
                 res.status(200).send({
-                    "type":"S",
-                    "response":result
+                    "type": "S",
+                    "response": result
                 })
             }
         } catch (error) {
             res.status(500).send({
-                "type":"W",
-                "response":error.message
+                "type": "W",
+                "response": error.message
             })
         }
     },
-    formato: async function(req, res){
+    formato: async function (req, res) {
         try {
             const pool = await getConnection();
             const result = await pool.query(querys.formato);
-            if(result == null || result == "undefined" || result.length == 0){
+            if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
-                    "type":"W",
-                    "response":"Base de datos vacía"
+                    "type": "W",
+                    "response": "Base de datos vacía"
                 })
-            }else{
+            } else {
                 res.status(200).send({
-                    "type":"S",
-                    "response":result
+                    "type": "S",
+                    "response": result
                 })
             }
         } catch (error) {
             res.status(500).send({
-                "type":"W",
-                "response":error.message
+                "type": "W",
+                "response": error.message
             })
         }
     },
-    modulos: async function(req, res){
+    modulos: async function (req, res) {
         try {
             const pool = await getConnection();
+            var del = connection._protocol._delegateError;
+            connection._protocol._delegateError = function (err, sequence) {
+                if (err.fatal) {
+                    console.trace('fatal error: ' + err.message);
+                }
+                return del.call(this, err, sequence);
+            };
             const result = await pool.query(querys.modulos);
-            if(result == null || result == "undefined" || result.length == 0){
+            if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
-                    "type":"W",
-                    "response":"Base de datos vacía"
+                    "type": "W",
+                    "response": "Base de datos vacía"
                 })
-            }else{
+            } else {
                 res.status(200).send({
-                    "type":"S",
-                    "response":result
+                    "type": "S",
+                    "response": result
                 })
             }
         } catch (error) {
             res.status(500).send({
-                "type":"W",
-                "response":error.message
+                "type": "W",
+                "response": error.message
             })
         }
     },
-    variedad: async function(req, res){
+    variedad: async function (req, res) {
         try {
             const pool = await getConnection();
             const result = await pool.query(querys.variedad);
-            if(result == null || result == "undefined" || result.length == 0){
+            if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
-                    "type":"W",
-                    "response":"Base de datos vacía"
+                    "type": "W",
+                    "response": "Base de datos vacía"
                 })
-            }else{
+            } else {
                 res.status(200).send({
-                    "type":"S",
-                    "response":result
+                    "type": "S",
+                    "response": result
                 })
             }
         } catch (error) {
             res.status(500).send({
-                "type":"W",
-                "response":error.message
+                "type": "W",
+                "response": error.message
             })
         }
     },
-    tratamiento: async function(req, res){
+    tratamiento: async function (req, res) {
         try {
             const pool = await getConnection();
             const result = await pool.query(querys.tratamiento);
-            if(result == null || result == "undefined" || result.length == 0){
+            if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
-                    "type":"W",
-                    "response":"Base de datos vacía"
+                    "type": "W",
+                    "response": "Base de datos vacía"
                 })
-            }else{
+            } else {
                 res.status(200).send({
-                    "type":"S",
-                    "response":result
+                    "type": "S",
+                    "response": result
                 })
             }
         } catch (error) {
             res.status(500).send({
-                "type":"W",
-                "response":error.message
+                "type": "W",
+                "response": error.message
             })
         }
     },
-    insertaritem: async function(req, res){
+    insertaritem: async function (req, res) {
         //  const placa = req.body.placa;
         //  const modelo=req.body.modelo;
         //  const placa2=req.body.placa2;
@@ -252,8 +259,8 @@ var login = {
         // })
 
     },
-    creartablas: async function(req,res){
-    //mensaje de prueba
+    creartablas: async function (req, res) {
+        //mensaje de prueba
     }
 
 
