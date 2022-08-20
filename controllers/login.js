@@ -1,12 +1,13 @@
 'use strict'
 const getConnection = require('../database');
 const querys = require('../querys');
+const pool = await getConnection();
 
 var login = {
     validar: async function (req, res) {
         let userid = req.params.id;
         try {
-            const pool = await getConnection();
+            // const pool = await getConnection();
             const result = await pool.query(querys.login, [userid]);
             if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
@@ -28,7 +29,7 @@ var login = {
     },
     transportes: async function (req, res) {
         try {
-            const pool = await getConnection();
+            // const pool = await getConnection();
             const result = await pool.query(querys.transportes);
             if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
@@ -50,7 +51,7 @@ var login = {
     },
     vehiculos: async function (req, res) {
         try {
-            const pool = await getConnection();
+            // const pool = await getConnection();
             const result = await pool.query(querys.vehiculos);
             if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
@@ -72,7 +73,7 @@ var login = {
     },
     conductores: async function (req, res) {
         try {
-            const pool = await getConnection();
+            // const pool = await getConnection();
             const result = await pool.query(querys.conductores);
             if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
@@ -94,7 +95,7 @@ var login = {
     },
     acopio: async function (req, res) {
         try {
-            const pool = await getConnection();
+            // const pool = await getConnection();
             const result = await pool.query(querys.acopio);
             if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
@@ -116,7 +117,7 @@ var login = {
     },
     lugarproceso: async function (req, res) {
         try {
-            const pool = await getConnection();
+            // const pool = await getConnection();
             const result = await pool.query(querys.lugarproceso);
             if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
@@ -138,7 +139,7 @@ var login = {
     },
     formato: async function (req, res) {
         try {
-            const pool = await getConnection();
+            // const pool = await getConnection();
             const result = await pool.query(querys.formato);
             if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
@@ -160,14 +161,7 @@ var login = {
     },
     modulos: async function (req, res) {
         try {
-            const pool = await getConnection();
-            var del = pool._protocol._delegateError;
-            pool._protocol._delegateError = function (err, sequence) {
-                if (err.fatal) {
-                    console.trace('fatal error: ' + err.message);
-                }
-                return del.call(this, err, sequence);
-            };
+            // const pool = await getConnection();
             const result = await pool.query(querys.modulos);
             if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
@@ -189,7 +183,7 @@ var login = {
     },
     variedad: async function (req, res) {
         try {
-            const pool = await getConnection();
+            // const pool = await getConnection();
             const result = await pool.query(querys.variedad);
             if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
@@ -211,7 +205,7 @@ var login = {
     },
     tratamiento: async function (req, res) {
         try {
-            const pool = await getConnection();
+            // const pool = await getConnection();
             const result = await pool.query(querys.tratamiento);
             if (result == null || result == "undefined" || result.length == 0) {
                 res.status(200).send({
@@ -252,11 +246,6 @@ var login = {
         //  const pesototal=req.body.pesototal;
         //  const fechareg=req.body.fechareg;
         //  const horareg=req.body.horareg;
-
-        // console.log(placa);
-        // res.status(200).send({
-        //     message:"body recept"
-        // })
 
     },
     creartablas: async function (req, res) {
