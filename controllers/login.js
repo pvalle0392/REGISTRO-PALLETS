@@ -161,8 +161,8 @@ var login = {
     modulos: async function (req, res) {
         try {
             const pool = await getConnection();
-            var del = connection._protocol._delegateError;
-            connection._protocol._delegateError = function (err, sequence) {
+            var del = pool._protocol._delegateError;
+            pool._protocol._delegateError = function (err, sequence) {
                 if (err.fatal) {
                     console.trace('fatal error: ' + err.message);
                 }
